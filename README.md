@@ -1,2 +1,2 @@
-#F1 Companion Web App
+# F1 Companion Web App
 ---

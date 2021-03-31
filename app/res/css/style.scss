@@ -1,5 +1,168 @@
-html {
-    font-size: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: #F3F8FE;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 6.5rem;
+    background-color: #F3F8FE;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.app_container {
+    margin: 25px;
+    padding-bottom: 6.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #565D94;
+    font-weight: bold;
+
+    .season_year {
+        font-weight: 300;
+        font-size: 1.3rem;
+        color: #000000;
+        float: right;
+    }
+}
+
+.race_card {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    display: flex;
+    box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+    margin: 2.5rem 0rem;
+
+    .race_round {
+        width: 5.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        background-color: #F2F6FE;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    .race_info {
+        padding: 1.5rem 1.5rem 1.5rem 1rem;
+
+        .race_name {
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .race_location {
+            font-size: 1.4rem;
+            color: #6E6E6E;
+            margin: 0.5rem 0rem;
+
+            img {
+                margin-right: 0.5rem;
+            }
+        }
+
+        .race_datetime {
+            font-size: 1.3rem;
+            color: #6E6E6E;
+
+            img {
+                margin-right: 0.2rem;
+            }
+
+            .race_card_clock_img {
+                margin-left: 1rem;
+            }
+        }
+    }
+}
+
+.standings {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+    padding: 1.5rem;
+    margin: 2.5rem 0rem;
+
+    .standing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .standing:not(:first-child) {
+        margin-top: 1.5rem;
+    }
+
+    .standing_place_block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 2.5rem;
+        width: 5.8rem;
+        background-color: #E5E8F9;
+        border-radius: 25px;
+        flex-grow: 1;
+
+        .standing_place {
+            width: 3rem;
+            height: 2.5rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .standing_place_number {
+                margin-left: 0.2rem;
+            }
+        }
+
+        .standing_place_logo {
+            width: 3rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 2.5rem;
+            border-bottom-right-radius: 2.5rem;
+
+            img {
+                margin-right: 0.2rem;
+            }
+        }
+    }
+
+    .standing_name {
+        font-size: 1.8rem;
+        font-weight: normal;
+        margin-left: 1rem;
+        flex-grow: 100;
+    }
+
+    .standing_points {
+        font-weight: bold;
+        font-size: 1.5rem;
+        flex-grow: 1;
+    }
 }

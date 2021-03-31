@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11">
+  <g id="Icon_feather-calendar" data-name="Icon feather-calendar" transform="translate(-4 -2.5)">
+    <path id="Path_16" data-name="Path 16" d="M5.5,6h7a1,1,0,0,1,1,1v7a1,1,0,0,1-1,1h-7a1,1,0,0,1-1-1V7A1,1,0,0,1,5.5,6Z" transform="translate(0 -2)" fill="none" stroke="#6e6e6e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_17" data-name="Path 17" d="M24,3V5" transform="translate(-13)" fill="none" stroke="#6e6e6e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_18" data-name="Path 18" d="M12,3V5" transform="translate(-5)" fill="none" stroke="#6e6e6e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_19" data-name="Path 19" d="M4.5,15h9" transform="translate(0 -8)" fill="none" stroke="#6e6e6e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

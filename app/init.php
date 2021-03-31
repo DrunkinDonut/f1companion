@@ -1,8 +1,14 @@
 <?php
 
-define("SITE_PATH", $_SERVER['SERVER_NAME']);
 define("APP_PATH", str_replace("\\", "/", dirname(__FILE__))."/");
-define("APP_RES", $_SERVER['SERVER_NAME']."/app/res/");
+if($_SERVER['SERVER_NAME'] != 'f1companion.test'){
+    define("SITE_PATH", 'http://'.$_SERVER['SERVER_NAME'].'/f1companion/');
+    define("APP_RES", 'http://'.$_SERVER['SERVER_NAME']."/f1companion/app/res/");
+}
+else {
+    define("SITE_PATH", 'http://'.$_SERVER['SERVER_NAME'].'/');
+    define("APP_RES", 'http://'.$_SERVER['SERVER_NAME']."/app/res/");
+}
 
 $server = 'localhost';
 $user = 'root';

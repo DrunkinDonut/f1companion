@@ -2,16 +2,16 @@
 
 class CMS_Core{
 
-	public $Table, $Database;
+	public $Template, $Database;
 
 	function __construct($server, $user, $pass, $db){
 		$this->Database = new mysqli($server, $user, $pass, $db);
 		$this->Database->set_charset('utf8');
 		$this->Database->query("SET timezone = 'Europe/Warsaw'");
 
-		/* obiekt Table */
-		// include APP_PATH.'models/m_table.php';
-		// $this->Table = new Table();
+		/* obiekt Template */
+		include APP_PATH.'models/m_template.php';
+		$this->Template = new Template();
 
 		/* start sesji */
 		session_start();

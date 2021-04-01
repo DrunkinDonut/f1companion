@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Czas generowania: 30 Mar 2021, 23:28
--- Wersja serwera: 10.4.14-MariaDB
--- Wersja PHP: 7.4.11
+-- Host: 127.0.0.1
+-- Czas generowania: 01 Kwi 2021, 09:10
+-- Wersja serwera: 10.4.8-MariaDB
+-- Wersja PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -87,6 +88,17 @@ CREATE TABLE `races` (
   `Country` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `settings`
+--
+
+CREATE TABLE `settings` (
+  `SettingID` int(11) NOT NULL,
+  `LastUpdate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -120,6 +132,12 @@ ALTER TABLE `drivers_standing`
 --
 ALTER TABLE `races`
   ADD PRIMARY KEY (`Round`);
+
+--
+-- Indeksy dla tabeli `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`SettingID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

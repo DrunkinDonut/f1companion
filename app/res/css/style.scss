@@ -55,6 +55,7 @@ h2 {
     display: flex;
     box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
     margin: 2.5rem 0rem;
+    color: #000000;
 
     .race_round {
         width: 7.4rem;
@@ -68,13 +69,16 @@ h2 {
         border-bottom-left-radius: 25px;
     }
 
-    .race_info {
+    .race_info_block {
         padding: 1.5rem 1.5rem 1.5rem 1rem;
         width: 100%;
+        display: flex;
+        justify-content: space-between;
 
         .race_name {
             font-weight: bold;
             font-size: 1.8rem;
+            padding-right: 1.5rem;
         }
 
         .race_location {
@@ -98,6 +102,10 @@ h2 {
             .race_card_clock_img {
                 margin-left: 1rem;
             }
+        }
+
+        .race_card_arrow {
+            align-self: center;
         }
     }
 }
@@ -130,7 +138,7 @@ h2 {
         flex-grow: 1;
 
         .standing_place {
-            width: 3rem;
+            width: 50%;
             height: 2.5rem;
             font-size: 1.6rem;
             font-weight: bold;
@@ -144,7 +152,7 @@ h2 {
         }
 
         .standing_place_logo {
-            width: 3rem;
+            width: 50%;
             height: 2.5rem;
             display: flex;
             justify-content: center;
@@ -153,7 +161,8 @@ h2 {
             border-bottom-right-radius: 2.5rem;
 
             img {
-                margin-right: 0.2rem;
+                max-width: 85%;
+                max-height: 60%;
             }
         }
     }
@@ -208,4 +217,10 @@ h2 {
             margin-right: 1rem;
         }
     }
+}
+
+.arrow_back_icon {
+    margin-right: 1rem;
+    width: 0.85rem;
+    height: 1.5rem;
 }

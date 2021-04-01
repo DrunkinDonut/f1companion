@@ -16,18 +16,20 @@
     <meta name="theme-color" content="#f3f8fe">
     <title>F1 Companion - Strona główna</title>
 
-    <link rel="stylesheet" href="<?php echo APP_RES; ?>css/style.css?v=1">
+    <link rel="stylesheet" href="<?php echo APP_RES; ?>css/style.css">
     <link rel="manifest" href="<?php echo SITE_PATH; ?>manifest.json">
-    <script>
+    <script type="text/javascript">
         if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('<?php echo SITE_PATH; ?>service-worker.js')
-  .then(function(registration) {
-    console.log('Registration successful, scope is:', registration.scope);
-  })
-  .catch(function(error) {
-    console.log('Service worker registration failed, error:', error);
-  });
-}
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('<?php echo SITE_PATH; ?>service-worker.js')
+                .then(function(registration) {
+                    console.log('Registration successful, scope is:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('Service worker registration failed, error:', error);
+                });
+            });
+        }
     </script>
 </head>
 <body>

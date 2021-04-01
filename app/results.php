@@ -1,0 +1,4 @@
+<?php
+    include 'init.php';
+
+    $CMS->load(APP_PATH.'views/v_results.php');

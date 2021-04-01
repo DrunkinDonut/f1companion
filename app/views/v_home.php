@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <?php $this->load(APP_PATH.'templates/head.html'); ?>
+    <?php $this->load(APP_PATH.'templates/t_head.php'); ?>
     <title>F1 Companion - Strona główna</title>
 </head>
 <body>

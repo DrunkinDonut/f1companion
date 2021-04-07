@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Czas generowania: 01 Kwi 2021, 09:10
--- Wersja serwera: 10.4.8-MariaDB
--- Wersja PHP: 7.3.11
+-- Host: localhost
+-- Czas generowania: 08 Kwi 2021, 00:51
+-- Wersja serwera: 10.4.14-MariaDB
+-- Wersja PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -96,8 +95,17 @@ CREATE TABLE `races` (
 
 CREATE TABLE `settings` (
   `SettingID` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Value` varchar(255) DEFAULT NULL,
   `LastUpdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `settings`
+--
+
+INSERT INTO `settings` (`SettingID`, `Name`, `Value`, `LastUpdate`) VALUES
+(1, 'DatabaseUpdate', NULL, '2021-04-08 00:39:17');
 
 --
 -- Indeksy dla zrzutów tabel

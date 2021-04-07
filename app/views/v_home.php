@@ -8,28 +8,7 @@
     <?php $this->Template->showNav('home'); ?>
     <div class="app_container">
         <h2>Najbliższy wyścig<span class="season_year">Sezon 2021</span></h2>
-        <div class="race_card">
-            <div class="race_round">
-                R1
-            </div>
-            <div class="race_info_block">
-                <div class="race_info">
-                    <div class="race_name">
-                        Bahrain Grand Prix
-                    </div>
-                    <div class="race_location">
-                        <img src="<?php echo APP_RES; ?>img/location.svg" alt="">
-                        Sakhir, Bahrain
-                    </div>
-                    <div class="race_datetime">
-                    <img src="<?php echo APP_RES; ?>img/calendar.svg" alt="">
-                    28.03.2021
-                    <img src="<?php echo APP_RES; ?>img/clock.svg" class="race_card_clock_img" alt="">
-                    17:00
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php $this->Template->showRaceCard(1, 'Bahrain Grand Prix', 'Sakhir, Bahrain', '28.03.2021', '17:00'); ?>
         <h2>TOP 5 kierowców</h2>
         <div class="standings">
             <div class="standing">

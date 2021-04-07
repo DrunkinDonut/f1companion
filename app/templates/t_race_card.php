@@ -18,7 +18,7 @@
             <?php echo $raceTime; ?>
             </div>
         </div>
-        <?php if($addArrow == true){
+        <?php if($addArrow === true){
             echo '<div class="race_card_arrow">
                 <img src="'.APP_RES.'img/arrow.svg" alt="">
             </div>';

@@ -40,6 +40,9 @@ h2 {
     font-size: 2rem;
     color: #565D94;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
 
     .season_year {
         font-weight: 300;

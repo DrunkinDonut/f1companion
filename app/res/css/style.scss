@@ -48,8 +48,11 @@ h2 {
         font-weight: 300;
         font-size: 1.3rem;
         color: #000000;
-        float: right;
     }
+}
+
+.h2_with_arrow {
+    justify-content: flex-start;
 }
 
 .race_card {

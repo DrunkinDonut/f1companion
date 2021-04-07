@@ -7,7 +7,7 @@
 <body>
     <?php $this->Template->showNav(''); ?>
     <div class="app_container">
-    <h2><a class="arrow_back_icon" href="<?php echo SITE_PATH; ?>app/results.php"><img src="<?php echo APP_RES; ?>img/arrow_back.svg" alt=""></a>Klasyfikacja konstruktorów</h2>
+    <h2 class="h2_with_arrow"><a class="arrow_back_icon" href="<?php echo SITE_PATH; ?>app/results.php"><img src="<?php echo APP_RES; ?>img/arrow_back.svg" alt=""></a>Klasyfikacja konstruktorów</h2>
         <div class="standings">
             <div class="standing">
                 <div class="standing_place_block">

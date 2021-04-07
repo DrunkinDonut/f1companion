@@ -59,7 +59,12 @@ h2 .season_year {
   font-weight: 300;
   font-size: 1.3rem;
   color: #000000;
-  float: right;
+}
+
+.h2_with_arrow {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .race_card {

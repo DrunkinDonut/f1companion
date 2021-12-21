@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <?php $this->load(APP_PATH.'templates/t_head.php'); ?>
+    <?php $this->load(APP_PATH . 'templates/t_head.php'); ?>
     <title>F1 Companion - Statystyki</title>
 </head>
+
 <body>
     <?php $this->Template->showNav('results'); ?>
     <div class="app_container">
@@ -47,4 +49,5 @@
         </a>
     </div>
 </body>
+
 </html>

@@ -1,12 +1,13 @@
 <?php
 
-class F1Api {
+class F1Api
+{
 
-    function __construct(){
-
+    function __construct()
+    {
     }
 
-    function checkDatabaseData(){
-        
+    function checkDatabaseData()
+    {
     }
 }

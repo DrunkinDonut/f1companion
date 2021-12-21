@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-    <?php $this->load(APP_PATH.'templates/t_head.php'); ?>
+    <?php $this->load(APP_PATH . 'templates/t_head.php'); ?>
     <title>F1 Companion - Strona główna</title>
 </head>
+
 <body>
     <?php $this->Template->showNav('home'); ?>
     <div class="app_container">
@@ -71,4 +73,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -12,15 +12,15 @@
                 <?php echo $raceLocation; ?>
             </div>
             <div class="race_datetime">
-            <img src="<?php echo APP_RES; ?>img/calendar.svg" alt="">
-            <?php echo $raceDate; ?>
-            <img src="<?php echo APP_RES; ?>img/clock.svg" class="race_card_clock_img" alt="">
-            <?php echo $raceTime; ?>
+                <img src="<?php echo APP_RES; ?>img/calendar.svg" alt="">
+                <?php echo $raceDate; ?>
+                <img src="<?php echo APP_RES; ?>img/clock.svg" class="race_card_clock_img" alt="">
+                <?php echo $raceTime; ?>
             </div>
         </div>
-        <?php if($addArrow === true){
+        <?php if ($addArrow === true) {
             echo '<div class="race_card_arrow">
-                <img src="'.APP_RES.'img/arrow.svg" alt="">
+                <img src="' . APP_RES . 'img/arrow.svg" alt="">
             </div>';
         } ?>
     </div>

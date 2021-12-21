@@ -3,7 +3,7 @@
 class CMS_Core
 {
 
-	public $Template, $F1Api, $Database;
+	public $Template, $F1Api, $F1Companion, $Database;
 
 	function __construct($server, $user, $pass, $db)
 	{
@@ -18,6 +18,10 @@ class CMS_Core
 		/* obiekt F1Api */
 		include APP_PATH . 'models/m_f1api.php';
 		$this->F1Api = new F1Api();
+
+		/* obiekt F1Companion */
+		include APP_PATH . 'models/m_f1companion.php';
+		$this->F1Companion = new F1Companion();
 
 		/* start sesji */
 		session_start();

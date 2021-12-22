@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Czas generowania: 08 Kwi 2021, 00:51
--- Wersja serwera: 10.4.14-MariaDB
--- Wersja PHP: 7.4.11
+-- Host: 127.0.0.1
+-- Czas generowania: 22 Gru 2021, 01:42
+-- Wersja serwera: 10.4.11-MariaDB
+-- Wersja PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `constructors` (
   `ConstructorID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `BackgroundColor` varchar(255) NOT NULL,
-  `LogoPictureName` varchar(255) NOT NULL
+  `BackgroundColor` varchar(255) DEFAULT NULL,
+  `LogoPictureName` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `constructors` (
 CREATE TABLE `constructors_standing` (
   `ConstructorPlace` int(11) NOT NULL,
   `ConstructorID` int(11) NOT NULL,
-  `Points` int(3) NOT NULL
+  `Points` decimal(3,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -69,7 +69,7 @@ CREATE TABLE `drivers_standing` (
   `DriverPlace` int(11) NOT NULL,
   `ConstructorID` int(11) NOT NULL,
   `DriverID` int(11) NOT NULL,
-  `Points` int(3) NOT NULL
+  `Points` decimal(3,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -105,7 +105,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`SettingID`, `Name`, `Value`, `LastUpdate`) VALUES
-(1, 'DatabaseUpdate', NULL, '2021-04-08 00:39:17');
+(1, 'DatabaseDataUpdate', NULL, '2021-04-08 00:39:17'),
+(2, 'SeasonYear', '2021', '2021-12-22 01:36:33');
 
 --
 -- Indeksy dla zrzutów tabel

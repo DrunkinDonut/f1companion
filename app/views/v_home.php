@@ -9,7 +9,7 @@
 <body>
     <?php $this->Template->showNav('home'); ?>
     <div class="app_container">
-        <h2>Najbliższy wyścig<span class="season_year">Sezon 2021</span></h2>
+        <h2>Najbliższy wyścig<span class="season_year">Sezon <?php echo $this->F1Companion->getSeasonYear(); ?></span></h2>
         <?php $this->Template->showRaceCard(1, 'Bahrain Grand Prix', 'Sakhir, Bahrain', '28.03.2021', '17:00'); ?>
         <h2>TOP 5 kierowców</h2>
         <div class="standings">

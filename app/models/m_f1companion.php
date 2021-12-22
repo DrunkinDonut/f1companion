@@ -11,16 +11,26 @@ class F1Companion
     {
         global $CMS;
         if ($year == 'actual') {
-            $CMS->Database->query('UPDATE settings SET Value = ' . date('Y') . ', LastUpdate = NOW() WHERE Name = "SeasonYear"');
+            $year = date('Y');
+            $stmt = $CMS->Database->prepare('UPDATE settings SET Value = ?, LastUpdate = NOW() WHERE Name = "SeasonYear"');
+            $stmt->bind_param('i', $year);
+            $stmt->execute();
+            $stmt->close();
         } else {
-            $CMS->Database->query('UPDATE settings SET Value = ' . $year . ', LastUpdate = NOW() WHERE Name = "SeasonYear"');
+            $stmt = $CMS->Database->prepare('UPDATE settings SET Value = ?, LastUpdate = NOW() WHERE Name = "SeasonYear"');
+            $stmt->bind_param('i', $year);
+            $stmt->execute();
+            $stmt->close();
         }
     }
 
     function getSeasonYear()
     {
         global $CMS;
-        $year = $CMS->Database->query('SELECT Value FROM settings WHERE Name = "SeasonYear"');
+        $stmt = $CMS->Database->prepare('SELECT Value FROM settings WHERE Name = "SeasonYear"');
+        $stmt->execute();
+        $year = $stmt->get_result();
+        $stmt->close();
         $year = $year->fetch_assoc();
         return $year['Value'];
     }

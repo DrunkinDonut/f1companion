@@ -17,7 +17,7 @@ class Template
         include APP_PATH . 'templates/t_race_card.php';
     }
 
-    function showStanding(int $place, string $teamLogoName, string $name, float $points)
+    function showStanding(int $place, string $teamBackgroundColor, string $teamLogoName, string $name, float $points)
     {
         include APP_PATH . 'templates/t_standing.php';
     }

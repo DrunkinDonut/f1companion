@@ -5,7 +5,7 @@
                 <?php echo $place; ?>
             </div>
         </div>
-        <div class="standing_place_logo" style="background-color: #08A49E;">
+        <div class="standing_place_logo" style="background-color: <?php echo $teamBackgroundColor; ?>;">
             <img src="<?php echo APP_RES; ?>img/teams/<?php echo $teamLogoName ?>.svg" alt="">
         </div>
     </div>

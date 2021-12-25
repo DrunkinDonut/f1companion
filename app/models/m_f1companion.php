@@ -27,11 +27,9 @@ class F1Companion
     function getSeasonYear()
     {
         global $CMS;
-        $stmt = $CMS->Database->prepare('SELECT Value FROM settings WHERE Name = "SeasonYear"');
-        $stmt->execute();
-        $year = $stmt->get_result();
+        $stmt = $CMS->Database->query('SELECT Value FROM settings WHERE Name = "SeasonYear"');
+        $year = $stmt->fetch_assoc();
         $stmt->close();
-        $year = $year->fetch_assoc();
         return $year['Value'];
     }
 }

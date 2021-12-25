@@ -3,7 +3,7 @@
 class CMS_Core
 {
 
-	public $Template, $F1Api, $F1Companion, $Database;
+	public $Template, $F1ApiData, $F1Companion, $Database;
 
 	function __construct($server, $user, $pass, $db)
 	{
@@ -16,8 +16,8 @@ class CMS_Core
 		$this->Template = new Template();
 
 		/* obiekt F1Api */
-		include APP_PATH . 'models/m_f1api.php';
-		$this->F1Api = new F1Api();
+		include APP_PATH . 'models/m_f1apidata.php';
+		$this->F1ApiData = new F1ApiData();
 
 		/* obiekt F1Companion */
 		include APP_PATH . 'models/m_f1companion.php';

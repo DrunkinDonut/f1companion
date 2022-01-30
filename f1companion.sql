@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Czas generowania: 25 Gru 2021, 02:00
--- Wersja serwera: 10.4.14-MariaDB
--- Wersja PHP: 7.4.11
+-- Host: 127.0.0.1
+-- Czas generowania: 30 Sty 2022, 01:15
+-- Wersja serwera: 10.4.11-MariaDB
+-- Wersja PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,18 +41,21 @@ CREATE TABLE `constructors` (
 --
 
 INSERT INTO `constructors` (`ConstructorID`, `Name`, `Nationality`, `WikiUrl`, `BackgroundColor`, `LogoPictureName`) VALUES
-(1, 'Alfa Romeo', 'Swiss', 'http://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One', NULL, NULL),
-(2, 'AlphaTauri', 'Italian', 'http://en.wikipedia.org/wiki/Scuderia_AlphaTauri', NULL, NULL),
-(3, 'Alpine F1 Team', 'French', 'http://en.wikipedia.org/wiki/Alpine_F1_Team', NULL, NULL),
-(4, 'Aston Martin', 'British', 'http://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One', NULL, NULL),
-(5, 'Ferrari', 'Italian', 'http://en.wikipedia.org/wiki/Scuderia_Ferrari', NULL, NULL),
-(6, 'Haas F1 Team', 'American', 'http://en.wikipedia.org/wiki/Haas_F1_Team', NULL, NULL),
-(7, 'McLaren', 'British', 'http://en.wikipedia.org/wiki/McLaren', NULL, NULL),
-(8, 'Mercedes', 'German', 'http://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One', NULL, NULL),
-(9, 'Red Bull', 'Austrian', 'http://en.wikipedia.org/wiki/Red_Bull_Racing', NULL, NULL),
-(10, 'Williams', 'British', 'http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering', NULL, NULL),
-(11, 'Racing Point', 'British', 'http://en.wikipedia.org/wiki/Racing_Point_F1_Team', NULL, NULL),
-(12, 'Renault', 'French', 'http://en.wikipedia.org/wiki/Renault_in_Formula_One', NULL, NULL);
+(1, 'Alfa Romeo', 'Swiss', 'http://en.wikipedia.org/wiki/Alfa_Romeo_in_Formula_One', '#9A0002', 'alfaromeo_white'),
+(2, 'AlphaTauri', 'Italian', 'http://en.wikipedia.org/wiki/Scuderia_AlphaTauri', '#26284F', 'alphatauri_white'),
+(3, 'Alpine F1 Team', 'French', 'http://en.wikipedia.org/wiki/Alpine_F1_Team', '#101B2D', 'alpine_white'),
+(4, 'Aston Martin', 'British', 'http://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One', '#015850', 'aston_martin_white'),
+(5, 'Ferrari', 'Italian', 'http://en.wikipedia.org/wiki/Scuderia_Ferrari', '#FE0000', 'ferrari_white'),
+(6, 'Haas F1 Team', 'American', 'http://en.wikipedia.org/wiki/Haas_F1_Team', '#F01A3C', 'haas_white'),
+(7, 'McLaren', 'British', 'http://en.wikipedia.org/wiki/McLaren', '#FF8800', 'mclaren_white'),
+(8, 'Mercedes', 'German', 'http://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One', '#01D2BF', 'mercedes_white'),
+(9, 'Red Bull', 'Austrian', 'http://en.wikipedia.org/wiki/Red_Bull_Racing', '#161960', 'redbull_white'),
+(10, 'Williams', 'British', 'http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering', '#009EDF', 'williams_white'),
+(11, 'Racing Point', 'British', 'http://en.wikipedia.org/wiki/Racing_Point_F1_Team', '#EB8FC0', 'racingpoint_white'),
+(12, 'Renault', 'French', 'http://en.wikipedia.org/wiki/Renault_in_Formula_One', '#F7C700', 'renault_white'),
+(13, 'Toro Rosso', 'Italian', 'http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso', '#032151', NULL),
+(14, 'Force India', 'Indian', 'http://en.wikipedia.org/wiki/Racing_Point_Force_India', NULL, NULL),
+(15, 'Sauber', 'Swiss', 'http://en.wikipedia.org/wiki/Sauber', '#D72F25', NULL);
 
 -- --------------------------------------------------------
 
@@ -71,16 +74,16 @@ CREATE TABLE `constructors_standing` (
 --
 
 INSERT INTO `constructors_standing` (`ConstructorPlace`, `ConstructorID`, `Points`) VALUES
-(1, 8, '613.5'),
-(2, 9, '585.5'),
-(3, 5, '323.5'),
-(4, 7, '275.0'),
-(5, 3, '155.0'),
-(6, 2, '142.0'),
-(7, 4, '77.0'),
-(8, 10, '23.0'),
-(9, 1, '13.0'),
-(10, 6, '0.0');
+(1, 1, '0.0'),
+(2, 2, '0.0'),
+(3, 3, '0.0'),
+(4, 4, '0.0'),
+(5, 5, '0.0'),
+(6, 6, '0.0'),
+(7, 7, '0.0'),
+(8, 8, '0.0'),
+(9, 9, '0.0'),
+(10, 10, '0.0');
 
 -- --------------------------------------------------------
 
@@ -149,33 +152,6 @@ CREATE TABLE `drivers_standing` (
   `Points` decimal(4,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Zrzut danych tabeli `drivers_standing`
---
-
-INSERT INTO `drivers_standing` (`DriverPlace`, `ConstructorID`, `DriverID`, `Points`) VALUES
-(1, 9, 20, '395.5'),
-(2, 8, 5, '387.5'),
-(3, 8, 2, '226.0'),
-(4, 9, 12, '190.0'),
-(5, 5, 16, '164.5'),
-(6, 7, 10, '160.0'),
-(7, 5, 8, '159.0'),
-(8, 7, 14, '115.0'),
-(9, 2, 3, '110.0'),
-(10, 3, 1, '81.0'),
-(11, 3, 11, '74.0'),
-(12, 4, 21, '43.0'),
-(13, 4, 18, '34.0'),
-(14, 2, 19, '32.0'),
-(15, 10, 15, '16.0'),
-(16, 1, 13, '10.0'),
-(17, 10, 7, '7.0'),
-(18, 1, 4, '3.0'),
-(19, 6, 17, '0.0'),
-(20, 1, 6, '0.0'),
-(21, 6, 9, '0.0');
-
 -- --------------------------------------------------------
 
 --
@@ -196,28 +172,29 @@ CREATE TABLE `races` (
 --
 
 INSERT INTO `races` (`Round`, `Name`, `DateAndTime`, `Circuit`, `City`, `Country`) VALUES
-(1, 'Bahrain Grand Prix', '2021-03-28 17:00:00', 'Bahrain International Circuit', 'Sakhir', 'Bahrain'),
-(2, 'Emilia Romagna Grand Prix', '2021-04-18 15:00:00', 'Autodromo Enzo e Dino Ferrari', 'Imola', 'Italy'),
-(3, 'Portuguese Grand Prix', '2021-05-02 16:00:00', 'Autódromo Internacional do Algarve', 'Portimão', 'Portugal'),
-(4, 'Spanish Grand Prix', '2021-05-09 15:00:00', 'Circuit de Barcelona-Catalunya', 'Montmeló', 'Spain'),
-(5, 'Monaco Grand Prix', '2021-05-23 15:00:00', 'Circuit de Monaco', 'Monte-Carlo', 'Monaco'),
-(6, 'Azerbaijan Grand Prix', '2021-06-06 14:00:00', 'Baku City Circuit', 'Baku', 'Azerbaijan'),
-(7, 'French Grand Prix', '2021-06-20 15:00:00', 'Circuit Paul Ricard', 'Le Castellet', 'France'),
-(8, 'Styrian Grand Prix', '2021-06-27 15:00:00', 'Red Bull Ring', 'Spielberg', 'Austria'),
-(9, 'Austrian Grand Prix', '2021-07-04 15:00:00', 'Red Bull Ring', 'Spielberg', 'Austria'),
-(10, 'British Grand Prix', '2021-07-18 16:00:00', 'Silverstone Circuit', 'Silverstone', 'UK'),
-(11, 'Hungarian Grand Prix', '2021-08-01 15:00:00', 'Hungaroring', 'Budapest', 'Hungary'),
-(12, 'Belgian Grand Prix', '2021-08-29 15:00:00', 'Circuit de Spa-Francorchamps', 'Spa', 'Belgium'),
-(13, 'Dutch Grand Prix', '2021-09-05 15:00:00', 'Circuit Park Zandvoort', 'Zandvoort', 'Netherlands'),
-(14, 'Italian Grand Prix', '2021-09-12 15:00:00', 'Autodromo Nazionale di Monza', 'Monza', 'Italy'),
-(15, 'Russian Grand Prix', '2021-09-26 14:00:00', 'Sochi Autodrom', 'Sochi', 'Russia'),
-(16, 'Turkish Grand Prix', '2021-10-10 14:00:00', 'Istanbul Park', 'Istanbul', 'Turkey'),
-(17, 'United States Grand Prix', '2021-10-24 21:00:00', 'Circuit of the Americas', 'Austin', 'USA'),
-(18, 'Mexico City Grand Prix', '2021-11-07 20:00:00', 'Autódromo Hermanos Rodríguez', 'Mexico City', 'Mexico'),
-(19, 'São Paulo Grand Prix', '2021-11-14 18:00:00', 'Autódromo José Carlos Pace', 'São Paulo', 'Brazil'),
-(20, 'Qatar Grand Prix', '2021-11-21 15:00:00', 'Losail International Circuit', 'Al Daayen', 'Qatar'),
-(21, 'Saudi Arabian Grand Prix', '2021-12-05 18:30:00', 'Jeddah Street Circuit', 'Jeddah', 'Saudi Arabia'),
-(22, 'Abu Dhabi Grand Prix', '2021-12-12 14:00:00', 'Yas Marina Circuit', 'Abu Dhabi', 'UAE');
+(1, 'Bahrain Grand Prix', '2022-03-20 16:00:00', 'Bahrain International Circuit', 'Sakhir', 'Bahrain'),
+(2, 'Saudi Arabian Grand Prix', '2022-03-27 19:30:00', 'Jeddah Street Circuit', 'Jeddah', 'Saudi Arabia'),
+(3, 'Australian Grand Prix', '2022-04-10 07:10:00', 'Albert Park Grand Prix Circuit', 'Melbourne', 'Australia'),
+(4, 'Emilia Romagna Grand Prix', '2022-04-24 15:00:00', 'Autodromo Enzo e Dino Ferrari', 'Imola', 'Italy'),
+(5, 'Miami Grand Prix', '2022-05-08 21:00:00', 'Miami International Autodrome', 'Miami', 'United States'),
+(6, 'Spanish Grand Prix', '2022-05-22 15:00:00', 'Circuit de Barcelona-Catalunya', 'Montmeló', 'Spain'),
+(7, 'Monaco Grand Prix', '2022-05-29 15:00:00', 'Circuit de Monaco', 'Monte-Carlo', 'Monaco'),
+(8, 'Azerbaijan Grand Prix', '2022-06-12 14:00:00', 'Baku City Circuit', 'Baku', 'Azerbaijan'),
+(9, 'Canadian Grand Prix', '2022-06-19 21:10:00', 'Circuit Gilles Villeneuve', 'Montreal', 'Canada'),
+(10, 'British Grand Prix', '2022-07-03 16:00:00', 'Silverstone Circuit', 'Silverstone', 'UK'),
+(11, 'Austrian Grand Prix', '2022-07-10 15:00:00', 'Red Bull Ring', 'Spielberg', 'Austria'),
+(12, 'French Grand Prix', '2022-07-24 15:00:00', 'Circuit Paul Ricard', 'Le Castellet', 'France'),
+(13, 'Hungarian Grand Prix', '2022-07-31 15:00:00', 'Hungaroring', 'Budapest', 'Hungary'),
+(14, 'Belgian Grand Prix', '2022-08-28 15:00:00', 'Circuit de Spa-Francorchamps', 'Spa', 'Belgium'),
+(15, 'Dutch Grand Prix', '2022-09-04 15:00:00', 'Circuit Park Zandvoort', 'Zandvoort', 'Netherlands'),
+(16, 'Italian Grand Prix', '2022-09-11 15:00:00', 'Autodromo Nazionale di Monza', 'Monza', 'Italy'),
+(17, 'Russian Grand Prix', '2022-09-25 14:00:00', 'Sochi Autodrom', 'Sochi', 'Russia'),
+(18, 'Singapore Grand Prix', '2022-10-02 14:10:00', 'Marina Bay Street Circuit', 'Marina Bay', 'Singapore'),
+(19, 'Japanese Grand Prix', '2022-10-09 07:10:00', 'Suzuka Circuit', 'Suzuka', 'Japan'),
+(20, 'United States Grand Prix', '2022-10-23 21:00:00', 'Circuit of the Americas', 'Austin', 'USA'),
+(21, 'Mexico City Grand Prix', '2022-10-30 20:00:00', 'Autódromo Hermanos Rodríguez', 'Mexico City', 'Mexico'),
+(22, 'São Paulo Grand Prix', '2022-11-13 18:00:00', 'Autódromo José Carlos Pace', 'São Paulo', 'Brazil'),
+(23, 'Abu Dhabi Grand Prix', '2022-11-20 14:00:00', 'Yas Marina Circuit', 'Abu Dhabi', 'UAE');
 
 -- --------------------------------------------------------
 
@@ -238,7 +215,7 @@ CREATE TABLE `settings` (
 
 INSERT INTO `settings` (`SettingID`, `Name`, `Value`, `LastUpdate`) VALUES
 (1, 'DatabaseDataUpdate', NULL, '2021-04-08 00:39:17'),
-(2, 'SeasonYear', '2021', '2021-12-25 01:57:34');
+(2, 'SeasonYear', '2022', '2022-01-30 01:13:18');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -284,14 +261,14 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`SettingID`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
 -- AUTO_INCREMENT dla tabeli `constructors`
 --
 ALTER TABLE `constructors`
-  MODIFY `ConstructorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ConstructorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT dla tabeli `drivers`

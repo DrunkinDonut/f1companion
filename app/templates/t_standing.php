@@ -5,9 +5,12 @@
                 <?php echo $place; ?>
             </div>
         </div>
-        <div class="standing_place_logo" style="background-color: <?php echo $teamBackgroundColor; ?>;">
-            <img src="<?php echo APP_RES; ?>img/teams/<?php echo $teamLogoName ?>.svg" alt="">
-        </div>
+        <?php if (!is_null($teamBackgroundColor)) {
+            echo '<div class="standing_place_logo" style="background-color: '.$teamBackgroundColor.';">
+                <img src="'.APP_RES.'img/teams/'.$teamLogoName.'.svg" alt="">
+            </div>';
+        }
+        ?>
     </div>
     <div class="standing_name">
         <?php echo $name; ?>

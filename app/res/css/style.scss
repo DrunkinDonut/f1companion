@@ -43,6 +43,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-self: center;
+    align-items: center;
 
     .season_year {
         font-weight: 300;
@@ -229,4 +230,24 @@ h2 {
     margin-right: 1rem;
     width: 0.85rem;
     height: 1.5rem;
+
+    img {
+        display: flex;
+    }
+}
+
+.info_block {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+    padding: 1.5rem;
+    margin: 2.5rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .info_block_message {
+        font-size: 1.8rem;
+    }
 }

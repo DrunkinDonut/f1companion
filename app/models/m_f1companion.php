@@ -22,6 +22,11 @@ class F1Companion
             $stmt->execute();
             $stmt->close();
         }
+        $CMS->F1ApiData->updateConstructorsDbData();
+        $CMS->F1ApiData->updateDriversDbData();
+        $CMS->F1ApiData->updateConstructorStandingsDbData();
+        $CMS->F1ApiData->updateDriverStandingsDbData();
+        $CMS->F1ApiData->updateRaceScheduleDbData();
     }
 
     function getSeasonYear()
@@ -31,5 +36,131 @@ class F1Companion
         $year = $stmt->fetch_assoc();
         $stmt->close();
         return $year['Value'];
+    }
+
+    function showRaceSchedule()
+    {
+        global $CMS;
+        $schedule = $CMS->F1ApiData->getRaceScheduleFromDb();
+        foreach ($schedule as $race) {
+            $raceDateTime = new DateTime($race['DateAndTime']);
+            $raceDate = $raceDateTime->format('d.m.Y');
+            $raceTime = $raceDateTime->format('H:i');
+            $raceLocation = $race['City'] . ', ' . $race['Country'];
+            $CMS->Template->showRaceCard($race['Round'], $race['Name'], $raceLocation, $raceDate, $raceTime);
+        }
+    }
+
+    function showNextRaceSchedule()
+    {
+        global $CMS;
+        $nextRace = $CMS->F1ApiData->getNextRaceScheduleFromDb();
+        if ($nextRace == NULL) {
+            $CMS->Template->showInfoBlock('Wszystkie wyścigi w tym sezonie zostały już rozegrane.');
+        } else {
+            $raceDateTime = new DateTime($nextRace[0]['DateAndTime']);
+            $raceDate = $raceDateTime->format('d.m.Y');
+            $raceTime = $raceDateTime->format('H:i');
+            $raceLocation = $nextRace[0]['City'] . ', ' . $nextRace[0]['Country'];
+            $CMS->Template->showRaceCard($nextRace[0]['Round'], $nextRace[0]['Name'], $raceLocation, $raceDate, $raceTime);
+        }
+    }
+
+    function showDriverStandings()
+    {
+        global $CMS;
+        $standings = $CMS->F1ApiData->getDriverStandingsFromDb();
+        if (count($standings) != 0) {
+            foreach ($standings as $row) {
+                $driverName = $row['FirstName'] . ' ' . $row['LastName'];
+                if (fmod($row['Points'], 1) !== 0.0) {
+                    $points = number_format($row['Points'], 2);
+                }
+                else {
+                    $points = intval($row['Points']);
+                }
+                $CMS->Template->showStanding($row['DriverPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $driverName, $points);
+            }
+        }
+        else {
+            $year = $this->getSeasonYear();
+            $message = 'Brak danych klasyfikacji kierowców dla sezonu ' . $year;
+            $CMS->Template->showInfoBlock($message);
+        }
+    }
+
+    function showTop5DriverStandings()
+    {
+        global $CMS;
+        $standings = $CMS->F1ApiData->getTop5DriverStandingsFromDb();
+        if (count($standings) != 0) {
+            foreach ($standings as $row) {
+                $driverName = $row['FirstName'] . ' ' . $row['LastName'];
+                if (fmod($row['Points'], 1) !== 0.0) {
+                    $points = number_format($row['Points'], 2);
+                }
+                else {
+                    $points = intval($row['Points']);
+                }
+                $CMS->Template->showStanding($row['DriverPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $driverName, $points);
+            }
+        }
+        else {
+            $year = $this->getSeasonYear();
+            $message = 'Brak danych klasyfikacji kierowców dla sezonu ' . $year;
+            $CMS->Template->showInfoBlock($message);
+        }
+    }
+
+    function showConstructorStandings()
+    {
+        global $CMS;
+        $standings = $CMS->F1ApiData->getConstructorStandingsFromDb();
+        $allPoints = 0;
+        foreach ($standings as $rows) {
+            $allPoints = $allPoints + $rows['Points'];
+        }
+        if ($allPoints != 0) {
+            foreach ($standings as $row) {
+                if (fmod($row['Points'], 1) !== 0.0) {
+                    $points = number_format($row['Points'], 2);
+                }
+                else {
+                    $points = intval($row['Points']);
+                }
+                $CMS->Template->showStanding($row['ConstructorPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $row['Name'], $points);
+            }
+        }
+        else {
+            $year = $this->getSeasonYear();
+            $message = 'Brak danych klasyfikacji konstruktorów dla sezonu ' . $year;
+            $CMS->Template->showInfoBlock($message);
+        }
+    }
+
+    function showTop3ConstructorStandings()
+    {
+        global $CMS;
+        $standings = $CMS->F1ApiData->getTop3ConstructorStandingsFromDb();
+        $allPoints = 0;
+        foreach ($standings as $rows) {
+            $allPoints = $allPoints + $rows['Points'];
+        }
+        if ($allPoints != 0) {
+            foreach ($standings as $row) {
+                if (fmod($row['Points'], 1) !== 0.0) {
+                    $points = number_format($row['Points'], 2);
+                }
+                else {
+                    $points = intval($row['Points']);
+                }
+                $CMS->Template->showStanding($row['ConstructorPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $row['Name'], $points);
+            }
+        }
+        else {
+            $year = $this->getSeasonYear();
+            $message = 'Brak danych klasyfikacji konstruktorów dla sezonu ' . $year;
+            $CMS->Template->showInfoBlock($message);
+        }
     }
 }

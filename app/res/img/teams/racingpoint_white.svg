@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xml:space="preserve"
+   width="100"
+   height="100"
+   version="1.1"
+   style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+   viewBox="0 0 1626208.6 1626208.6"
+   id="svg15"
+   sodipodi:docname="racingpoint_white.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"><metadata
+   id="metadata19"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview17"
+   showgrid="false"
+   inkscape:zoom="3.4"
+   inkscape:cx="27.476434"
+   inkscape:cy="66.626793"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="_1023515072"
+   fit-margin-top="0"
+   fit-margin-left="0"
+   fit-margin-right="0"
+   fit-margin-bottom="0" />
+ <defs
+   id="defs4">
+  <style
+   type="text/css"
+   id="style2">
+   <![CDATA[
+    .fil1 {fill:#002E6C}
+    .fil2 {fill:#D0006E}
+    .fil0 {fill:#F394C6}
+   ]]>
+  </style>
+ </defs>
+ <g
+   id="Layer_x0020_1">
+  <metadata
+   id="CorelCorpID_0Corel-Layer" />
+  <g
+   id="_1023515072">
+   <path
+   id="circle7"
+   style="fill:#ffffff;stroke-width:1626.23"
+   d="M 813104.2,-2.2127497e-7 A 813104.2,813104.2 0 0 0 -2.2210683e-7,813104.2 813104.2,813104.2 0 0 0 813104.2,1626208.6 813104.2,813104.2 0 0 0 1626208.6,813104.2 813104.2,813104.2 0 0 0 813104.2,-2.2127497e-7 Z M 813104.2,266412.33 A 546691.21,546691.21 0 0 1 1359795.9,813104.2 546691.21,546691.21 0 0 1 813104.2,1359795.9 546691.21,546691.21 0 0 1 266412.33,813104.2 546691.21,546691.21 0 0 1 813104.2,266412.33 Z" />
+   
+   <path
+   id="circle11"
+   style="fill:#ffffff;stroke-width:0.1"
+   d="M 1140847,813104.2 A 327742.99,327742.99 0 0 1 813104.2,1140847 327742.99,327742.99 0 0 1 485361.21,813104.2 327742.99,327742.99 0 0 1 813104.2,485361.21 327742.99,327742.99 0 0 1 1140847,813104.2 Z"
+   class="fil2" />
+  </g>
+ </g>
+</svg>

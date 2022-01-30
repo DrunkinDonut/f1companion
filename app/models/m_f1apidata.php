@@ -271,4 +271,58 @@ class F1ApiData
         }
         $stmt->close();
     }
+
+    function getRaceScheduleFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT * FROM races');
+        $schedule = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $schedule;
+    }
+
+    function getNextRaceScheduleFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT * FROM races WHERE DateAndTime > NOW()');
+        $nextRace = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $nextRace;
+    }
+
+    function getDriverStandingsFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT s.DriverPlace, c.BackgroundColor, c.LogoPictureName, d.FirstName, d.LastName, s.Points FROM drivers_standing AS s, constructors AS c, drivers AS d WHERE s.ConstructorID = c.ConstructorID AND s.DriverID = d.DriverID ORDER BY s.DriverPlace ASC');
+        $standings = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $standings;
+    }
+
+    function getTop5DriverStandingsFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT s.DriverPlace, c.BackgroundColor, c.LogoPictureName, d.FirstName, d.LastName, s.Points FROM drivers_standing AS s, constructors AS c, drivers AS d WHERE s.ConstructorID = c.ConstructorID AND s.DriverID = d.DriverID ORDER BY s.DriverPlace ASC LIMIT 5');
+        $standings = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $standings;
+    }
+
+    function getConstructorStandingsFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT s.ConstructorPlace, c.Name, c.BackgroundColor, c.LogoPictureName, s.Points FROM constructors_standing AS s, constructors AS c WHERE s.ConstructorID = c.ConstructorID ORDER BY s.ConstructorPlace ASC');
+        $standings = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $standings;
+    }
+
+    function getTop3ConstructorStandingsFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT s.ConstructorPlace, c.Name, c.BackgroundColor, c.LogoPictureName, s.Points FROM constructors_standing AS s, constructors AS c WHERE s.ConstructorID = c.ConstructorID ORDER BY s.ConstructorPlace ASC LIMIT 3');
+        $standings = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $standings;
+    }
 }

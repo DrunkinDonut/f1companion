@@ -9,7 +9,7 @@
 <body>
     <?php $this->Template->showNav('calendar'); ?>
     <div class="app_container">
-        <h2>Kalendarz<span class="season_year">Sezon <?php echo $this->F1Companion->getSeasonYear(); ?></span></h2>
+        <h2>Kalendarz<?php $this->load(APP_PATH . 'templates/t_season_year_input.php'); ?></h2>
         <?php $this->F1Companion->showRaceSchedule(); ?>
     </div>
 </body>

@@ -9,7 +9,7 @@
 <body>
     <?php $this->Template->showNav('results'); ?>
     <div class="app_container">
-        <h2>Statystyki<span class="season_year">Sezon <?php echo $this->F1Companion->getSeasonYear(); ?></span></h2>
+        <h2>Statystyki<?php $this->load(APP_PATH . 'templates/t_season_year_input.php'); ?></h2>
         <a href="<?php echo SITE_PATH; ?>app/results.php?v=drivers_standing">
             <div class="results_link_block">
                 <div class="results_link_icon">

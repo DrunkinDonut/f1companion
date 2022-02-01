@@ -18,3 +18,5 @@ date_default_timezone_set("Europe/Warsaw");
 
 require_once(APP_PATH . 'core.php');
 $CMS = new CMS_Core($server, $user, $pass, $db);
+
+$CMS->F1Companion->checkIfDataIsUpToDate();

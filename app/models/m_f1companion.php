@@ -22,11 +22,7 @@ class F1Companion
             $stmt->execute();
             $stmt->close();
         }
-        $CMS->F1ApiData->updateConstructorsDbData();
-        $CMS->F1ApiData->updateDriversDbData();
-        $CMS->F1ApiData->updateConstructorStandingsDbData();
-        $CMS->F1ApiData->updateDriverStandingsDbData();
-        $CMS->F1ApiData->updateRaceScheduleDbData();
+        $CMS->F1ApiData->updateAllDbData();
     }
 
     function getSeasonYear()
@@ -36,6 +32,20 @@ class F1Companion
         $year = $stmt->fetch_assoc();
         $stmt->close();
         return $year['Value'];
+    }
+
+    function checkIfDataIsUpToDate()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT LastUpdate FROM settings WHERE Name = "DatabaseDataUpdate"');
+        $lastUpdate = $stmt->fetch_row();
+        $stmt->close();
+        $lastUpdateTime = date('Y-m-d H:i', strtotime($lastUpdate[0]));
+        $nowMinusHour = date('Y-m-d H:i', strtotime('-1 hour'));
+        if ($nowMinusHour > $lastUpdateTime) {
+            $CMS->F1ApiData->updateAllDbData();
+            $CMS->Database->query('UPDATE settings SET LastUpdate = NOW() WHERE Name = "DatabaseDataUpdate"');
+        }
     }
 
     function showRaceSchedule()
@@ -75,14 +85,12 @@ class F1Companion
                 $driverName = $row['FirstName'] . ' ' . $row['LastName'];
                 if (fmod($row['Points'], 1) !== 0.0) {
                     $points = number_format($row['Points'], 2);
-                }
-                else {
+                } else {
                     $points = intval($row['Points']);
                 }
                 $CMS->Template->showStanding($row['DriverPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $driverName, $points);
             }
-        }
-        else {
+        } else {
             $year = $this->getSeasonYear();
             $message = 'Brak danych klasyfikacji kierowców dla sezonu ' . $year;
             $CMS->Template->showInfoBlock($message);
@@ -98,14 +106,12 @@ class F1Companion
                 $driverName = $row['FirstName'] . ' ' . $row['LastName'];
                 if (fmod($row['Points'], 1) !== 0.0) {
                     $points = number_format($row['Points'], 2);
-                }
-                else {
+                } else {
                     $points = intval($row['Points']);
                 }
                 $CMS->Template->showStanding($row['DriverPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $driverName, $points);
             }
-        }
-        else {
+        } else {
             $year = $this->getSeasonYear();
             $message = 'Brak danych klasyfikacji kierowców dla sezonu ' . $year;
             $CMS->Template->showInfoBlock($message);
@@ -124,14 +130,12 @@ class F1Companion
             foreach ($standings as $row) {
                 if (fmod($row['Points'], 1) !== 0.0) {
                     $points = number_format($row['Points'], 2);
-                }
-                else {
+                } else {
                     $points = intval($row['Points']);
                 }
                 $CMS->Template->showStanding($row['ConstructorPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $row['Name'], $points);
             }
-        }
-        else {
+        } else {
             $year = $this->getSeasonYear();
             $message = 'Brak danych klasyfikacji konstruktorów dla sezonu ' . $year;
             $CMS->Template->showInfoBlock($message);
@@ -150,14 +154,12 @@ class F1Companion
             foreach ($standings as $row) {
                 if (fmod($row['Points'], 1) !== 0.0) {
                     $points = number_format($row['Points'], 2);
-                }
-                else {
+                } else {
                     $points = intval($row['Points']);
                 }
                 $CMS->Template->showStanding($row['ConstructorPlace'], $row['BackgroundColor'], $row['LogoPictureName'], $row['Name'], $points);
             }
-        }
-        else {
+        } else {
             $year = $this->getSeasonYear();
             $message = 'Brak danych klasyfikacji konstruktorów dla sezonu ' . $year;
             $CMS->Template->showInfoBlock($message);

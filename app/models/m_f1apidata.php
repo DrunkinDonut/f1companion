@@ -272,6 +272,15 @@ class F1ApiData
         $stmt->close();
     }
 
+    function updateAllDbData()
+    {
+        $this->updateConstructorsDbData();
+        $this->updateDriversDbData();
+        $this->updateConstructorStandingsDbData();
+        $this->updateDriverStandingsDbData();
+        $this->updateRaceScheduleDbData();
+    }
+
     function getRaceScheduleFromDb()
     {
         global $CMS;

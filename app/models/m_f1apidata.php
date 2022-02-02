@@ -199,7 +199,7 @@ class F1ApiData
         $constructors = $this->getConstructorsFromApi();
         $constructorsNumber = count($constructors);
 
-        $stmt = $CMS->Database->prepare('INSERT INTO constructors (Name, Nationality, WikiUrl) SELECT ?, ?, ? WHERE NOT EXISTS (SELECT Name FROM constructors WHERE Name = ?)');
+        $stmt = $CMS->Database->prepare('INSERT INTO constructors (Name, Nationality, WikiUrl) SELECT ?, ?, ? FROM constructors WHERE NOT EXISTS (SELECT Name FROM constructors WHERE Name = ?)');
         for ($i = 0; $i < $constructorsNumber; $i++) {
             $stmt->bind_param('ssss', $constructors[$i]['name'], $constructors[$i]['nationality'], $constructors[$i]['url'], $constructors[$i]['name']);
             $stmt->execute();
@@ -213,7 +213,7 @@ class F1ApiData
         $drivers = $this->getDriversFromApi();
         $driversNumber = count($drivers);
 
-        $stmt = $CMS->Database->prepare('INSERT INTO drivers (FirstName, LastName, DriverNumber, Nationality, DateOfBirth, WikiUrl) SELECT ?, ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT FirstName, LastName FROM drivers WHERE FirstName = ? AND LastName = ?)');
+        $stmt = $CMS->Database->prepare('INSERT INTO drivers (FirstName, LastName, DriverNumber, Nationality, DateOfBirth, WikiUrl) SELECT ?, ?, ?, ?, ?, ? FROM drivers WHERE NOT EXISTS (SELECT FirstName, LastName FROM drivers WHERE FirstName = ? AND LastName = ?)');
         for ($i = 0; $i < $driversNumber; $i++) {
             $stmt->bind_param('ssisssss', $drivers[$i]['firstName'], $drivers[$i]['lastName'], $drivers[$i]['number'], $drivers[$i]['nationality'], $drivers[$i]['birth'], $drivers[$i]['url'], $drivers[$i]['firstName'], $drivers[$i]['lastName']);
             $stmt->execute();

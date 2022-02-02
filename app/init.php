@@ -14,9 +14,10 @@ $user = 'root';
 $pass = '';
 $db = 'f1companion';
 
-date_default_timezone_set("Europe/Warsaw");
-
 require_once(APP_PATH . 'core.php');
 $CMS = new CMS_Core($server, $user, $pass, $db);
+
+date_default_timezone_set("Europe/Warsaw");
+$CMS->Database->query('SET time_zone = "+1:00"');
 
 $CMS->F1Companion->checkIfDataIsUpToDate();

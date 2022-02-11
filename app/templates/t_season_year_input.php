@@ -8,7 +8,7 @@
         var openModalBtn = document.getElementById('yearSelectModalBtn');
 
         minusBtn.onclick = function() {
-            if (parseInt(yearInput.value) >= 1949) {
+            if (parseInt(yearInput.value) >= 1951) {
                 yearInput.value = parseInt(yearInput.value) - 1;
             }
         }

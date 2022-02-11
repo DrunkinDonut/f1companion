@@ -71,7 +71,12 @@ class F1ApiData
         foreach ($drivers->DriverTable->Driver as $driver) {
             $driversArray[$i]['firstName'] = strval($driver->GivenName);
             $driversArray[$i]['lastName'] = strval($driver->FamilyName);
-            $driversArray[$i]['number'] = intval($driver->PermanentNumber);
+            if ($driver->PermanentNumber == "") {
+                $driversArray[$i]['number'] = 0;
+            }
+            else {
+                $driversArray[$i]['number'] = intval($driver->PermanentNumber);
+            }
             $driversArray[$i]['nationality'] = strval($driver->Nationality);
             $driversArray[$i]['birth'] = strval($driver->DateOfBirth);
             $driversArray[$i]['url'] = strval($driver['url']);
@@ -199,7 +204,7 @@ class F1ApiData
         $constructors = $this->getConstructorsFromApi();
         $constructorsNumber = count($constructors);
 
-        $stmt = $CMS->Database->prepare('INSERT INTO constructors (Name, Nationality, WikiUrl) SELECT ?, ?, ? FROM constructors WHERE NOT EXISTS (SELECT Name FROM constructors WHERE Name = ?)');
+        $stmt = $CMS->Database->prepare('INSERT INTO constructors (Name, Nationality, WikiUrl) SELECT * FROM (SELECT ? AS Name, ? AS Nationality, ? AS WikiUrl) AS tmp WHERE NOT EXISTS (SELECT Name FROM constructors WHERE Name = ?) LIMIT 1');
         for ($i = 0; $i < $constructorsNumber; $i++) {
             $stmt->bind_param('ssss', $constructors[$i]['name'], $constructors[$i]['nationality'], $constructors[$i]['url'], $constructors[$i]['name']);
             $stmt->execute();
@@ -213,7 +218,7 @@ class F1ApiData
         $drivers = $this->getDriversFromApi();
         $driversNumber = count($drivers);
 
-        $stmt = $CMS->Database->prepare('INSERT INTO drivers (FirstName, LastName, DriverNumber, Nationality, DateOfBirth, WikiUrl) SELECT ?, ?, ?, ?, ?, ? FROM drivers WHERE NOT EXISTS (SELECT FirstName, LastName FROM drivers WHERE FirstName = ? AND LastName = ?)');
+        $stmt = $CMS->Database->prepare('INSERT INTO drivers (FirstName, LastName, DriverNumber, Nationality, DateOfBirth, WikiUrl) SELECT * FROM (SELECT ? AS FirstName, ? AS LastName, ? AS DriverNumber, ? AS Nationality, ? AS DateOfBirth, ? AS WikiUrl) AS tmp WHERE NOT EXISTS (SELECT FirstName, LastName FROM drivers WHERE FirstName = ? AND LastName = ?) LIMIT 1');
         for ($i = 0; $i < $driversNumber; $i++) {
             $stmt->bind_param('ssisssss', $drivers[$i]['firstName'], $drivers[$i]['lastName'], $drivers[$i]['number'], $drivers[$i]['nationality'], $drivers[$i]['birth'], $drivers[$i]['url'], $drivers[$i]['firstName'], $drivers[$i]['lastName']);
             $stmt->execute();
@@ -225,6 +230,7 @@ class F1ApiData
             $stmt2->bind_param('iss', $drivers[$j]['number'], $drivers[$j]['firstName'], $drivers[$j]['lastName']);
             $stmt2->execute();
         }
+        $stmt2->close();
     }
 
     function updateConstructorStandingsDbData()

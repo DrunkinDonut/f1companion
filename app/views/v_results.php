@@ -41,12 +41,7 @@
             </div>
         </a>
         <h2>Wyniki wyścigów</h2>
-        <a href="<?php echo SITE_PATH; ?>app/results.php?r=1&y=2021">
-            <?php $this->Template->showRaceCard(1, 'Bahrain Grand Prix', 'Sakhir, Bahrain', '28.03.2021', '17:00', true); ?>
-        </a>
-        <a href="<?php echo SITE_PATH; ?>app/results.php?r=2&y=2021">
-            <?php $this->Template->showRaceCard(2, 'Emilia Romagna Grand Prix', 'Imola, Italy', '18.04.2021', '15:00', true); ?>
-        </a>
+        <?php $this->F1Companion->showEndedRacesHyperlinks(); ?>
     </div>
 </body>
 

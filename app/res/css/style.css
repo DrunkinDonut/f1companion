@@ -187,7 +187,6 @@ h2 .season_year {
           align-items: center;
   height: 2.5rem;
   width: 5.8rem;
-  background-color: #E5E8F9;
   border-radius: 25px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -226,8 +225,7 @@ h2 .season_year {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top-right-radius: 2.5rem;
-  border-bottom-right-radius: 2.5rem;
+  border-radius: 0.5rem;
 }
 
 .standings .standing_place_block .standing_place_logo img {
@@ -254,7 +252,7 @@ h2 .season_year {
 
 .results_link_block {
   background-color: #FFFFFF;
-  border-radius: 25px;
+  border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,8 +274,8 @@ h2 .season_year {
       -ms-flex-align: center;
           align-items: center;
   background-color: #F2F6FE;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .results_link_block .results_link_icon img {

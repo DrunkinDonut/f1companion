@@ -61,6 +61,22 @@ class F1Companion
         }
     }
 
+    function showEndedRacesHyperlinks()
+    {
+        global $CMS;
+        $schedule = $CMS->F1ApiData->getEndedRaceScheduleFromDb();
+        foreach ($schedule as $race) {
+            $raceDateTime = new DateTime($race['DateAndTime']);
+            $raceDate = $raceDateTime->format('d.m.Y');
+            $raceTime = $raceDateTime->format('H:i');
+            $raceLocation = $race['City'] . ', ' . $race['Country'];
+
+            echo '<a href=' . SITE_PATH . 'app/results.php?r=' . $race['Round'] . '&y=' . $this->getSeasonYear() . '>';
+            $CMS->Template->showRaceCard($race['Round'], $race['Name'], $raceLocation, $raceDate, $raceTime, TRUE);
+            echo '</a>';
+        }
+    }
+
     function showNextRaceSchedule()
     {
         global $CMS;

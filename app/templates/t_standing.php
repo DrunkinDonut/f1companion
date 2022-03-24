@@ -7,7 +7,7 @@
         </div>
         <?php if (!is_null($teamBackgroundColor)) {
             echo '<div class="standing_place_logo" style="background-color: '.$teamBackgroundColor.';">
-                <img src="'.APP_RES.'img/teams/'.$teamLogoName.'.svg" alt="">
+                <img src="'.APP_RES.'img/teams/'.$teamLogoName.'" alt="">
             </div>';
         }
         ?>

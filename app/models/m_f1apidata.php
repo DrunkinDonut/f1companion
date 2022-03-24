@@ -296,6 +296,15 @@ class F1ApiData
         return $schedule;
     }
 
+    function getEndedRaceScheduleFromDb()
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT * FROM races WHERE DateAndTime < (NOW() - INTERVAL 2 HOUR)');
+        $schedule = $stmt->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $schedule;
+    }
+
     function getNextRaceScheduleFromDb()
     {
         global $CMS;

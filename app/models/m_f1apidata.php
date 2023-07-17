@@ -73,8 +73,7 @@ class F1ApiData
             $driversArray[$i]['lastName'] = strval($driver->FamilyName);
             if ($driver->PermanentNumber == "") {
                 $driversArray[$i]['number'] = 0;
-            }
-            else {
+            } else {
                 $driversArray[$i]['number'] = intval($driver->PermanentNumber);
             }
             $driversArray[$i]['nationality'] = strval($driver->Nationality);
@@ -196,6 +195,50 @@ class F1ApiData
             $i++;
         }
         return $raceScheduleArray;
+    }
+
+    function getRaceResultFromApi($round, $year)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://ergast.com/api/f1/' . $year . '/' . $round . '/results',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        $raceResult = new SimpleXMLElement($response);
+
+        $i = 0;
+        $raceResultArray = array();
+        $raceResultArray['race_info']['name'] = strval($raceResult->RaceTable->Race->RaceName);
+        $raceResultArray['race_info']['circuit'] = strval($raceResult->RaceTable->Race->Circuit->CircuitName);
+        $raceResultArray['race_info']['circuit_city'] = strval($raceResult->RaceTable->Race->Circuit->Location->Locality);
+        $raceResultArray['race_info']['circuit_country'] = strval($raceResult->RaceTable->Race->Circuit->Location->Country);
+        foreach ($raceResult->RaceTable->Race->ResultsList->Result as $result) {
+            $raceResultArray['race_result'][$i]['position'] = strval($result['positionText']);
+            $raceResultArray['race_result'][$i]['constructor'] = strval($result->Constructor->Name);
+            $raceResultArray['race_result'][$i]['driver'] = strval($result->Driver->GivenName) . ' ' . strval($result->Driver->FamilyName);
+            $raceResultArray['race_result'][$i]['driver_code'] = strval($result->Driver['code']);
+            $raceResultArray['race_result'][$i]['grid'] = strval($result->Grid);
+            $raceResultArray['race_result'][$i]['laps'] = strval($result->Laps);
+            $raceResultArray['race_result'][$i]['status'] = strval($result->Status);
+            if (!empty($result->Time)) {
+                $raceResultArray['race_result'][$i]['time'] = strval($result->Time);
+            }
+            $raceResultArray['race_result'][$i]['points'] = intval($result['points']);
+            $i++;
+        }
+        return $raceResultArray;
     }
 
     function updateConstructorsDbData()

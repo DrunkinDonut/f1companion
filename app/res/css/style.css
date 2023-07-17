@@ -6,7 +6,7 @@
 
 html {
   font-size: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   width: 100vw;
   height: 100vh;
 }
@@ -21,15 +21,9 @@ nav {
   width: 100vw;
   height: 6.5rem;
   background-color: #F3F8FE;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 a {
@@ -45,21 +39,13 @@ h2 {
   font-size: 2rem;
   color: #565D94;
   font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-item-align: center;
-      align-self: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-self: center;
+  align-items: center;
 }
-
 h2 .season_year {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: 0;
   padding: 0;
   background-color: transparent;
@@ -69,238 +55,210 @@ h2 .season_year {
 }
 
 .h2_with_arrow {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .race_card {
   background-color: #FFFFFF;
   border-radius: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
-          box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+  box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
   margin: 2.5rem 0rem;
   color: #000000;
 }
-
 .race_card .race_round {
   width: 7.4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
   background-color: #F2F6FE;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
-
 .race_card .race_info_block {
   padding: 1.5rem 1.5rem 1.5rem 1rem;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .race_card .race_info_block .race_name {
   font-weight: bold;
   font-size: 1.8rem;
   padding-right: 1.5rem;
 }
-
 .race_card .race_info_block .race_location {
   font-size: 1.4rem;
   color: #6E6E6E;
   margin: 0.5rem 0rem;
 }
-
 .race_card .race_info_block .race_location img {
   margin-right: 0.5rem;
 }
-
 .race_card .race_info_block .race_datetime {
   font-size: 1.3rem;
   color: #6E6E6E;
 }
-
 .race_card .race_info_block .race_datetime img {
   margin-right: 0.2rem;
 }
-
 .race_card .race_info_block .race_datetime .race_card_clock_img {
   margin-left: 1rem;
 }
-
 .race_card .race_info_block .race_card_arrow {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 .standings {
   background-color: #FFFFFF;
   border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
-          box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+  box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
   padding: 1.5rem;
   margin: 2.5rem 0rem;
 }
-
 .standings .standing {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .standings .standing:not(:first-child) {
   margin-top: 1.5rem;
 }
-
 .standings .standing_place_block {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   height: 2.5rem;
   width: 5.8rem;
   border-radius: 25px;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
-
 .standings .standing_place_block .standing_place {
   width: 50%;
   height: 2.5rem;
   font-size: 1.6rem;
   font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .standings .standing_place_block .standing_place .standing_place_number {
   margin-left: 0.2rem;
 }
-
 .standings .standing_place_block .standing_place_logo {
   width: 50%;
   height: 2.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 0.5rem;
 }
-
 .standings .standing_place_block .standing_place_logo img {
   max-width: 85%;
   max-height: 60%;
 }
-
 .standings .standing_name {
   font-size: 1.8rem;
   font-weight: normal;
   margin-left: 1rem;
-  -webkit-box-flex: 100;
-      -ms-flex-positive: 100;
-          flex-grow: 100;
+  flex-grow: 100;
 }
-
 .standings .standing_points {
   font-weight: bold;
   font-size: 1.5rem;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
 
 .results_link_block {
   background-color: #FFFFFF;
   border-radius: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
-          box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+  box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
   margin: 2.5rem 0rem;
   color: #000000;
 }
-
 .results_link_block .results_link_icon {
   width: 7.4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: #F2F6FE;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-
 .results_link_block .results_link_icon img {
   height: 2rem;
   width: 2rem;
 }
-
 .results_link_block .results_link_main {
   padding: 1.5rem 1.5rem 1.5rem 1rem;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .results_link_block .results_link_main .results_link_name {
   font-weight: bold;
   font-size: 1.8rem;
   margin-right: 1rem;
+}
+
+.race_result_location {
+  font-size: 1.4rem;
+  color: #6E6E6E;
+  margin: 1rem 2rem;
+}
+
+.race_results_block {
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+  padding: 1.5rem;
+  margin: 1rem 0rem;
+  overflow-x: auto;
+}
+.race_results_block .results {
+  width: 100%;
+}
+.race_results_block .results th {
+  padding: 0rem 1rem 1rem 1rem;
+  color: #565D94;
+}
+.race_results_block .results tr {
+  white-space: nowrap;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+.race_results_block .results tr td:not(.driver_name, .driver_code) {
+  text-align: center;
+}
+.race_results_block .results tr .results_position {
+  font-weight: bold;
+}
+.race_results_block .results tr .driver_code {
+  display: none;
+}
+.race_results_block .results tr .driver_name {
+  display: table-cell;
+}
+.race_results_block .results tr .results_points {
+  font-weight: bold;
+}
+.race_results_block .results tr:not(:first-child) td {
+  padding-top: 1rem;
+}
+.race_results_block .results .constructor_logo {
+  width: 2.5rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+.race_results_block .results .constructor_logo img {
+  max-width: 85%;
+  max-height: 60%;
 }
 
 .arrow_back_icon {
@@ -308,32 +266,21 @@ h2 .season_year {
   width: 0.85rem;
   height: 1.5rem;
 }
-
 .arrow_back_icon img {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .info_block {
   background-color: #FFFFFF;
   border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
-          box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
+  box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
   padding: 1.5rem;
   margin: 2.5rem 0rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
-
 .info_block .info_block_message {
   font-size: 1.8rem;
 }
@@ -346,14 +293,9 @@ h2 .season_year {
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .modal .modal_block {
   max-width: 30rem;
   max-height: 20rem;
@@ -362,24 +304,13 @@ h2 .season_year {
   background-color: #FFFFFF;
   border-radius: 25px;
   margin: 25px;
-  -webkit-box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
-          box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  box-shadow: 0px 0px 60px rgba(86, 93, 148, 0.16);
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   position: relative;
 }
-
 .modal .modal_block .close_modal {
   position: absolute;
   top: 0;
@@ -391,35 +322,18 @@ h2 .season_year {
   cursor: pointer;
   text-decoration: none;
 }
-
 .modal .modal_block .input_block {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
 }
-
 .modal .modal_block form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
 .modal .modal_block form input[type=number] {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 2.5rem;
   width: 8rem;
@@ -428,16 +342,17 @@ h2 .season_year {
   padding: 1rem;
   border: 0;
   border-radius: 25px;
+  -webkit-appearance: textfield;
+          appearance: textfield;
   -moz-appearance: textfield;
 }
-
-.modal .modal_block form input::-webkit-outer-spin-button, .modal .modal_block form input::-webkit-inner-spin-button {
+.modal .modal_block form input::-webkit-outer-spin-button,
+.modal .modal_block form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 .modal .modal_block form input[type=submit] {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 1.6rem;
   text-align: center;
@@ -449,12 +364,20 @@ h2 .season_year {
   background-color: #565D94;
   cursor: pointer;
 }
-
-.modal .modal_block form #inputMinusBtn, .modal .modal_block form #inputPlusBtn {
+.modal .modal_block form #inputMinusBtn,
+.modal .modal_block form #inputPlusBtn {
   padding: 0 1rem;
   font-size: 3rem;
   border: 0;
   background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-/*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 500px) {
+  .driver_code {
+    display: table-cell !important;
+  }
+  .driver_name {
+    display: none !important;
+  }
+}/*# sourceMappingURL=style.css.map */

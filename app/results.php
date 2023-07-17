@@ -12,5 +12,13 @@ if (isset($_GET['v']) && !empty($_GET['v'])) {
         }
     }
 } else {
-    $CMS->load(APP_PATH . 'views/v_results.php');
+    if (isset($_GET['r']) && !empty($_GET['r']) && is_numeric($_GET['r'])) {
+        if (isset($_GET['y']) && !empty($_GET['y']) && is_numeric($_GET['y'])) {
+            $CMS->load(APP_PATH . 'views/v_race_result.php');
+        } else {
+            $CMS->load(APP_PATH . 'views/v_results.php');
+        }
+    } else {
+        $CMS->load(APP_PATH . 'views/v_results.php');
+    }
 }

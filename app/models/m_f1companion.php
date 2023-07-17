@@ -34,6 +34,17 @@ class F1Companion
         return $year['Value'];
     }
 
+    function getConstructorLogoByName($name)
+    {
+        global $CMS;
+        $stmt = $CMS->Database->query('SELECT BackgroundColor, LogoPictureName FROM constructors WHERE Name = "' . $name . '"');
+        $result = $stmt->fetch_assoc();
+        $stmt->close();
+        $data['background_color'] = $result['BackgroundColor'];
+        $data['logo_img_name'] = $result['LogoPictureName'];
+        return $data;
+    }
+
     function checkIfDataIsUpToDate()
     {
         global $CMS;

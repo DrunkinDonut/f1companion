@@ -110,7 +110,7 @@ class F1ApiData
 
         $i = 0;
         $constructorStandingsArray = array();
-        foreach ($constructorStandings['MRData']['StandingsTable']['StandingsList']['ConstructorStandings'] as $standing) {
+        foreach ($constructorStandings['MRData']['StandingsTable']['StandingsLists'][0]['ConstructorStandings'] as $standing) {
             $constructorStandingsArray[$i]['position'] = intval($standing['position']);
             $constructorStandingsArray[$i]['name'] = strval($standing['Constructor']['name']);
             $constructorStandingsArray[$i]['points'] = floatval($standing['points']);
@@ -145,11 +145,11 @@ class F1ApiData
 
         $i = 0;
         $driverStandingsArray = array();
-        foreach ($driverStandings['MRData']['StandingsTable']['StandingsList']['DriverStandings'] as $standing) {
+        foreach ($driverStandings['MRData']['StandingsTable']['StandingsLists'][0]['DriverStandings'] as $standing) {
             $driverStandingsArray[$i]['position'] = intval($standing['position']);
             $driverStandingsArray[$i]['firstName'] = strval($standing['Driver']['givenName']);
             $driverStandingsArray[$i]['lastName'] = strval($standing['Driver']['familyName']);
-            $driverStandingsArray[$i]['constructorName'] = strval($standing['Constructors']['name']);
+            $driverStandingsArray[$i]['constructorName'] = strval($standing['Constructors'][0]['name']);
             $driverStandingsArray[$i]['points'] = floatval($standing['points']);
             $i++;
         }

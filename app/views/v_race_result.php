@@ -34,6 +34,8 @@
                                 <td class="results_position">' . $results['race_result'][$i]['position'] . '</td>';
                         if (!is_null($constructorLogo['background_color'])) {
                             echo '<td><div class="constructor_logo" style="background-color: ' . $constructorLogo['background_color'] . '"><img src="' . APP_RES . 'img/teams/' . $constructorLogo['logo_img_name'] . '" alt=""></div></td>';
+                        } else {
+                            echo '<td></td>';
                         }
                         echo '<td class="driver_name">' . $results['race_result'][$i]['driver'] . '</td>
                                 <td class="driver_code">' . $results['race_result'][$i]['driver_code'] . '</td>

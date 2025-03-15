@@ -15,7 +15,7 @@ class F1ApiData
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://ergast.com/api/f1/' . $seasonYear . '/constructors',
+            CURLOPT_URL => 'http://api.jolpi.ca/ergast/f1/' . $seasonYear . '/constructors/?format=json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -29,13 +29,13 @@ class F1ApiData
 
         curl_close($curl);
 
-        $constructors = new SimpleXMLElement($response);
+        $constructors = json_decode($response, true);
 
         $i = 0;
         $constructorsArray = array();
-        foreach ($constructors->ConstructorTable->Constructor as $constructor) {
-            $constructorsArray[$i]['name'] = strval($constructor->Name);
-            $constructorsArray[$i]['nationality'] = strval($constructor->Nationality);
+        foreach ($constructors['MRData']['ConstructorTable']['Constructors'] as $constructor) {
+            $constructorsArray[$i]['name'] = strval($constructor['name']);
+            $constructorsArray[$i]['nationality'] = strval($constructor['nationality']);
             $constructorsArray[$i]['url'] = strval($constructor['url']);
             $i++;
         }
@@ -50,7 +50,7 @@ class F1ApiData
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://ergast.com/api/f1/' . $seasonYear . '/drivers',
+            CURLOPT_URL => 'http://api.jolpi.ca/ergast/f1/' . $seasonYear . '/drivers/?format=json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -64,20 +64,20 @@ class F1ApiData
 
         curl_close($curl);
 
-        $drivers = new SimpleXMLElement($response);
+        $drivers = json_decode($response, true);
 
         $i = 0;
         $driversArray = array();
-        foreach ($drivers->DriverTable->Driver as $driver) {
-            $driversArray[$i]['firstName'] = strval($driver->GivenName);
-            $driversArray[$i]['lastName'] = strval($driver->FamilyName);
-            if ($driver->PermanentNumber == "") {
+        foreach ($drivers['MRData']['DriverTable']['Drivers'] as $driver) {
+            $driversArray[$i]['firstName'] = strval($driver['givenName']);
+            $driversArray[$i]['lastName'] = strval($driver['familyName']);
+            if ($driver['permanentNumber'] == "") {
                 $driversArray[$i]['number'] = 0;
             } else {
-                $driversArray[$i]['number'] = intval($driver->PermanentNumber);
+                $driversArray[$i]['number'] = intval($driver['permanentNumber']);
             }
-            $driversArray[$i]['nationality'] = strval($driver->Nationality);
-            $driversArray[$i]['birth'] = strval($driver->DateOfBirth);
+            $driversArray[$i]['nationality'] = strval($driver['nationality']);
+            $driversArray[$i]['birth'] = strval($driver['dateOfBirth']);
             $driversArray[$i]['url'] = strval($driver['url']);
             $i++;
         }
@@ -92,7 +92,7 @@ class F1ApiData
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://ergast.com/api/f1/' . $seasonYear . '/constructorStandings',
+            CURLOPT_URL => 'http://api.jolpi.ca/ergast/f1/' . $seasonYear . '/constructorStandings/?format=json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -106,13 +106,13 @@ class F1ApiData
 
         curl_close($curl);
 
-        $constructorStandings = new SimpleXMLElement($response);
+        $constructorStandings = json_decode($response, true);
 
         $i = 0;
         $constructorStandingsArray = array();
-        foreach ($constructorStandings->StandingsTable->StandingsList->ConstructorStanding as $standing) {
+        foreach ($constructorStandings['MRData']['StandingsTable']['StandingsList']['ConstructorStandings'] as $standing) {
             $constructorStandingsArray[$i]['position'] = intval($standing['position']);
-            $constructorStandingsArray[$i]['name'] = strval($standing->Constructor->Name);
+            $constructorStandingsArray[$i]['name'] = strval($standing['Constructor']['name']);
             $constructorStandingsArray[$i]['points'] = floatval($standing['points']);
             $i++;
         }
@@ -127,7 +127,7 @@ class F1ApiData
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://ergast.com/api/f1/' . $seasonYear . '/driverStandings',
+            CURLOPT_URL => 'http://api.jolpi.ca/ergast/f1/' . $seasonYear . '/driverStandings/?format=json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -141,15 +141,15 @@ class F1ApiData
 
         curl_close($curl);
 
-        $driverStandings = new SimpleXMLElement($response);
+        $driverStandings = json_decode($response, true);
 
         $i = 0;
         $driverStandingsArray = array();
-        foreach ($driverStandings->StandingsTable->StandingsList->DriverStanding as $standing) {
+        foreach ($driverStandings['MRData']['StandingsTable']['StandingsList']['DriverStandings'] as $standing) {
             $driverStandingsArray[$i]['position'] = intval($standing['position']);
-            $driverStandingsArray[$i]['firstName'] = strval($standing->Driver->GivenName);
-            $driverStandingsArray[$i]['lastName'] = strval($standing->Driver->FamilyName);
-            $driverStandingsArray[$i]['constructorName'] = strval($standing->Constructor->Name);
+            $driverStandingsArray[$i]['firstName'] = strval($standing['Driver']['givenName']);
+            $driverStandingsArray[$i]['lastName'] = strval($standing['Driver']['familyName']);
+            $driverStandingsArray[$i]['constructorName'] = strval($standing['Constructors']['name']);
             $driverStandingsArray[$i]['points'] = floatval($standing['points']);
             $i++;
         }
@@ -164,7 +164,7 @@ class F1ApiData
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://ergast.com/api/f1/' . $seasonYear,
+            CURLOPT_URL => 'http://api.jolpi.ca/ergast/f1/' . $seasonYear . '/?format=json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -178,20 +178,20 @@ class F1ApiData
 
         curl_close($curl);
 
-        $raceSchedule = new SimpleXMLElement($response);
+        $raceSchedule = json_decode($response, true);
 
         $i = 0;
         $raceScheduleArray = array();
-        foreach ($raceSchedule->RaceTable->Race as $race) {
+        foreach ($raceSchedule['MRData']['RaceTable']['Races'] as $race) {
             $raceScheduleArray[$i]['round'] = intval($race['round']);
-            $raceScheduleArray[$i]['name'] = strval($race->RaceName);
-            $raceTime = new DateTime($race->Date . ' ' . $race->Time);
+            $raceScheduleArray[$i]['name'] = strval($race['raceName']);
+            $raceTime = new DateTime($race['date'] . ' ' . $race['time']);
             $plTime = new DateTimeZone('Europe/Warsaw');
             $raceTime->setTimezone($plTime);
             $raceScheduleArray[$i]['dateTime'] = strval($raceTime->format('Y-m-d H:i:s'));
-            $raceScheduleArray[$i]['circuit'] = strval($race->Circuit->CircuitName);
-            $raceScheduleArray[$i]['city'] = strval($race->Circuit->Location->Locality);
-            $raceScheduleArray[$i]['country'] = strval($race->Circuit->Location->Country);
+            $raceScheduleArray[$i]['circuit'] = strval($race['Circuit']['circuitName']);
+            $raceScheduleArray[$i]['city'] = strval($race['Circuit']['Location']['locality']);
+            $raceScheduleArray[$i]['country'] = strval($race['Circuit']['Location']['country']);
             $i++;
         }
         return $raceScheduleArray;
@@ -202,7 +202,7 @@ class F1ApiData
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://ergast.com/api/f1/' . $year . '/' . $round . '/results',
+            CURLOPT_URL => 'http://api.jolpi.ca/ergast/f1/' . $year . '/' . $round . '/results/?format=json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -216,24 +216,24 @@ class F1ApiData
 
         curl_close($curl);
 
-        $raceResult = new SimpleXMLElement($response);
+        $raceResult = json_decode($response, true);
 
         $i = 0;
         $raceResultArray = array();
-        $raceResultArray['race_info']['name'] = strval($raceResult->RaceTable->Race->RaceName);
-        $raceResultArray['race_info']['circuit'] = strval($raceResult->RaceTable->Race->Circuit->CircuitName);
-        $raceResultArray['race_info']['circuit_city'] = strval($raceResult->RaceTable->Race->Circuit->Location->Locality);
-        $raceResultArray['race_info']['circuit_country'] = strval($raceResult->RaceTable->Race->Circuit->Location->Country);
-        foreach ($raceResult->RaceTable->Race->ResultsList->Result as $result) {
+        $raceResultArray['race_info']['name'] = strval($raceResult['MRData']['RaceTable']['Races'][0]['raceName']);
+        $raceResultArray['race_info']['circuit'] = strval($raceResult['MRData']['RaceTable']['Races'][0]['Circuit']['circuitName']);
+        $raceResultArray['race_info']['circuit_city'] = strval($raceResult['MRData']['RaceTable']['Races'][0]['Circuit']['Location']['locality']);
+        $raceResultArray['race_info']['circuit_country'] = strval($raceResult['MRData']['RaceTable']['Races'][0]['Circuit']['Location']['country']);
+        foreach ($raceResult['MRData']['RaceTable']['Races'][0]['Results'] as $result) {
             $raceResultArray['race_result'][$i]['position'] = strval($result['positionText']);
-            $raceResultArray['race_result'][$i]['constructor'] = strval($result->Constructor->Name);
-            $raceResultArray['race_result'][$i]['driver'] = strval($result->Driver->GivenName) . ' ' . strval($result->Driver->FamilyName);
-            $raceResultArray['race_result'][$i]['driver_code'] = strval($result->Driver['code']);
-            $raceResultArray['race_result'][$i]['grid'] = strval($result->Grid);
-            $raceResultArray['race_result'][$i]['laps'] = strval($result->Laps);
-            $raceResultArray['race_result'][$i]['status'] = strval($result->Status);
-            if (!empty($result->Time)) {
-                $raceResultArray['race_result'][$i]['time'] = strval($result->Time);
+            $raceResultArray['race_result'][$i]['constructor'] = strval($result['Constructor']['name']);
+            $raceResultArray['race_result'][$i]['driver'] = strval($result['Driver']['givenName']) . ' ' . strval($result['Driver']['familyName']);
+            $raceResultArray['race_result'][$i]['driver_code'] = strval($result['Driver']['code']);
+            $raceResultArray['race_result'][$i]['grid'] = strval($result['grid']);
+            $raceResultArray['race_result'][$i]['laps'] = strval($result['laps']);
+            $raceResultArray['race_result'][$i]['status'] = strval($result['status']);
+            if (!empty($result['Time']['time'])) {
+                $raceResultArray['race_result'][$i]['time'] = strval($result['Time']['time']);
             }
             $raceResultArray['race_result'][$i]['points'] = intval($result['points']);
             $i++;

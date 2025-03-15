@@ -40,7 +40,7 @@
                                 <td>' . $results['race_result'][$i]['grid'] . '</td>
                                 <td>' . $results['race_result'][$i]['laps'] . '</td>
                                 <td>';
-                        if (empty($results['race_result'][$i]['time']) || substr($results['race_result'][$i]['time'], 0, 2) === '+-') {
+                        if (empty($results['race_result'][$i]['time']) || substr($results['race_result'][$i]['time'], 0, 2) === '+-' || $results['race_result'][$i]['status'] == '+1 Lap') {
                             echo $results['race_result'][$i]['status'];
                         } else {
                             echo $results['race_result'][$i]['time'];

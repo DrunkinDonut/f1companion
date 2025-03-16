@@ -144,9 +144,15 @@ class F1ApiData
         $driverStandings = json_decode($response, true);
 
         $i = 0;
+        $lastPosition = 0;
         $driverStandingsArray = array();
         foreach ($driverStandings['MRData']['StandingsTable']['StandingsLists'][0]['DriverStandings'] as $standing) {
-            $driverStandingsArray[$i]['position'] = intval($standing['position']);
+            if ($standing['positionText'] != "-") {
+                $driverStandingsArray[$i]['position'] = intval($standing['position']);
+                $lastPosition = intval($standing['position']);
+            } else {
+                $driverStandingsArray[$i]['position'] = ++$lastPosition;
+            }
             $driverStandingsArray[$i]['firstName'] = strval($standing['Driver']['givenName']);
             $driverStandingsArray[$i]['lastName'] = strval($standing['Driver']['familyName']);
             $driverStandingsArray[$i]['constructorName'] = strval($standing['Constructors'][0]['name']);
